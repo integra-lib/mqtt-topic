@@ -2,7 +2,7 @@
 
 #include <string_view>
 
-namespace integra
+namespace hwlib::communication
 {
 
 /// Whether an MQTT topic filter matches a topic name, per MQTT 3.1.1 section 4.7
@@ -63,4 +63,4 @@ namespace integra
     }
 }
 
-} // namespace integra
+} // namespace hwlib::communication

@@ -2,23 +2,23 @@
 
 Does an MQTT topic filter match a topic name — per the specification, at compile time if you like.
 
-Part of [integra-lib](https://github.com/integra-lib) — architecture-independent C++20
+Part of [hwlib](https://github.com/integra-lib) — architecture-independent C++20
 components shared between firmware projects. Header-only,
 no exceptions, no RTTI.
 
 ## Use it
 
 ```bash
-git submodule add git@github.com:integra-lib/mqtt-topic.git external/integra/mqtt-topic
+git submodule add git@github.com:integra-lib/mqtt-topic.git external/hwlib/mqtt-topic
 ```
 
 ```cmake
-add_subdirectory(external/integra/mqtt-topic)
-target_link_libraries(app PRIVATE Integra::mqtt_topic)
+add_subdirectory(external/hwlib/mqtt-topic)
+target_link_libraries(app PRIVATE Hwlib::mqtt_topic)
 ```
 
 ```cpp
-#include <integra/mqtt_topic.hpp>
+#include <hwlib/communication/mqtt_topic.hpp>
 ```
 
 Each component carries its own include directory, so this header stays unreachable
@@ -28,9 +28,9 @@ a build that happens to work.
 ## What it does
 
 ```cpp
-static_assert(integra::MatchTopic("home/+/temp", "home/kitchen/temp"));
+static_assert(hwlib::communication::MatchTopic("home/+/temp", "home/kitchen/temp"));
 
-if (integra::MatchTopic(subscription.filter, message.topic))
+if (hwlib::communication::MatchTopic(subscription.filter, message.topic))
 {
     subscription.handler(message);
 }
@@ -71,9 +71,9 @@ Every component is released on its own, tagged `vX.Y.Z`. Pre-1.0, a minor releas
 break the API, which is why dependants accept a single minor.
 
 ```bash
-git -C external/integra/mqtt-topic fetch --tags
-git -C external/integra/mqtt-topic checkout v0.2.0
-git add external/integra/mqtt-topic && git commit -m "build: bump mqtt-topic to v0.2.0"
+git -C external/hwlib/mqtt-topic fetch --tags
+git -C external/hwlib/mqtt-topic checkout v0.2.0
+git add external/hwlib/mqtt-topic && git commit -m "build: bump mqtt-topic to v0.2.0"
 ```
 
 ## In a consumer's CI

@@ -1,5 +1,5 @@
 {
-  "name": "integra-mqtt-topic",
+  "name": "hwlib-mqtt-topic",
   "private": true,
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",

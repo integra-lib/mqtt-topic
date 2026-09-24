@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
 
-#include <integra/mqtt_topic.hpp>
+#include <hwlib/communication/mqtt_topic.hpp>
 
 namespace
 {
 
-using integra::MatchTopic;
+using hwlib::communication::MatchTopic;
 
 // Every case the original carried as a static_assert, most of them from the
 // examples in MQTT 3.1.1 section 4.7. Kept as they were, so the rewrite is held to
